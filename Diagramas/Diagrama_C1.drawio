@@ -1,0 +1,158 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="JAVcdKMqFjLkcAL3QV-d">
+    <mxGraphModel dx="4040" dy="2220" grid="1" gridSize="22" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&#xa;  &quot;data&quot;: &quot;flowchart TB\n    Customer[\&quot; Cliente B2B / B2C&lt;br&gt;[Persona]&lt;br&gt;Crea órdenes de compra/despacho y consulta tracking en tiempo real.\&quot;] -- \&quot;Crea órdenes y consulta tracking&lt;br&gt;(HTTPS / TLS 1.3)\&quot; --&gt; NexusSystem[\&quot;🏢 Plataforma NexusEngine v2.0&lt;br&gt;[Software System]&lt;br&gt;Plataforma distribuida de logística omnicanal, ruteo GPS, pagos fintech y facturación.&lt;br&gt;(120k despachos/día en 5 países)\&quot;]\n    Driver[\&quot;Transportista Última Milla&lt;br&gt;[Persona]&lt;br&gt;Recibe rutas óptimas, reporta coordenadas GPS y registra cobros COD.\&quot;] -- \&quot;Actualiza estados, GPS y pagos COD&lt;br&gt;(HTTPS / WebSockets TLS 1.3)\&quot; --&gt; NexusSystem\n    FinanceUser[\&quot; Equipo de Finanzas y Auditoría&lt;br&gt;[Persona]&lt;br&gt;Supervisa conciliaciones bancarias, facturación y reportes PCI-DSS.\&quot;] -- \&quot;Audita conciliación y facturación&lt;br&gt;(HTTPS / TLS 1.3)\&quot; --&gt; NexusSystem\n    NexusSystem -- Cotiza tarifas y delega envíos&lt;br&gt;(HTTPS / REST / SOAP) --&gt; Carriers3PL[\&quot; Operadores Logísticos Externos (3PL)&lt;br&gt;[External System]&lt;br&gt;APIs heterogéneas (REST/SOAP/GraphQL) de couriers internacionales y regionales.\&quot;]\n    NexusSystem -- \&quot;Tokeniza, procesa cobros y concilia&lt;br&gt;(HTTPS / TLS 1.3 / ISO-8583)\&quot; --&gt; PaymentGateways[\&quot; Pasarelas de Pago y Bancos&lt;br&gt;[External System]&lt;br&gt;Procesadores de tarjetas, billeteras digitales y bancos para conciliación.\&quot;]\n    NexusSystem -- Emite documentos tributarios&lt;br&gt;(HTTPS / XML / JSON) --&gt; TaxAuthority[\&quot; Entidades Tributarias (5 Países)&lt;br&gt;[External System]&lt;br&gt;SII / SUNAT / DIAN / etc. para emisión de facturación electrónica.\&quot;]\n    NexusSystem -- Despacha alertas asíncronas&lt;br&gt;(HTTPS / SMTP) --&gt; NotificationProviders[\&quot; Proveedores Email / SMS / Push&lt;br&gt;[External System]&lt;br&gt;Servicios transaccionales (AWS SES, Twilio, FCM).\&quot;]\n\n     Customer:::person\n     Driver:::person\n     FinanceUser:::person\n     NexusSystem:::system\n     Carriers3PL:::external\n     PaymentGateways:::external\n     TaxAuthority:::external\n     NotificationProviders:::external\n    classDef person fill:#08427b,stroke:#052e56,color:#ffffff\n    classDef system fill:#1168bd,stroke:#0b4884,color:#ffffff\n    classDef external fill:#999999,stroke:#6b6b6b,color:#ffffff&quot;,&#xa;  &quot;config&quot;: null&#xa;}" id="QKaY6ufUY5QWxxiP74Xu-299">
+          <mxCell connectable="0" parent="1" style="group;transparentBounds=1;editIcon=1;lockedGroup=0;groupPadding=10;" vertex="1">
+            <mxGeometry height="1686" width="1781" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-321" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-299" source="QKaY6ufUY5QWxxiP74Xu-300" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeWidth=2;curved=0;" target="QKaY6ufUY5QWxxiP74Xu-303">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="305.75" y="584" />
+              <mxPoint x="520.32" y="584" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="Cliente B2B / B2C&#xa;[Persona]&#xa;Crea órdenes de compra/despacho y consulta &#xa;tracking en&#xa; tiempo real." mermaidId="n:Customer" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Cliente B2B / B2C&#xa;[Persona" id="QKaY6ufUY5QWxxiP74Xu-300">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="whiteSpace=wrap;strokeWidth=1;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=21;" vertex="1">
+            <mxGeometry height="218" width="198" x="206.75" y="188" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-317" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-299" source="QKaY6ufUY5QWxxiP74Xu-301" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;strokeWidth=2;curved=0;" target="QKaY6ufUY5QWxxiP74Xu-303">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="569.75" y="452" />
+              <mxPoint x="569.75" y="452" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="Transportista &#xa;Última Milla&#xa;[Persona]&#xa;Recibe rutas &#xa;óptimas,&#xa; reporta&#xa; coordenadas &#xa;GPS y registra &#xa;cobros COD." mermaidId="n:Driver" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot;Transportista Última Milla&#xa;[Persona" id="QKaY6ufUY5QWxxiP74Xu-301">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="whiteSpace=wrap;strokeWidth=1;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=21;" vertex="1">
+            <mxGeometry height="274" width="198" x="468.25" y="132" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Equipo de &#xa;Finanzas y &#xa;Auditoría&#xa;[Persona]&#xa;Supervisa &#xa;conciliaciones &#xa;bancarias, &#xa;facturación y &#xa;reportes PCI-&#xa;DSS." mermaidId="n:FinanceUser" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Equipo de Finanzas y Auditoría&#xa;[Persona" id="QKaY6ufUY5QWxxiP74Xu-302">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="whiteSpace=wrap;strokeWidth=1;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=21;" vertex="1">
+            <mxGeometry height="308" width="198" x="721.75" y="98" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-326" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-299" source="QKaY6ufUY5QWxxiP74Xu-303" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.867;exitY=1.003;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;exitPerimeter=0;curved=0;strokeWidth=2;" target="QKaY6ufUY5QWxxiP74Xu-307">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="642.48" y="1034" />
+              <mxPoint x="947.75" y="1034" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-327" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-299" source="QKaY6ufUY5QWxxiP74Xu-303" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.676;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;exitPerimeter=0;strokeWidth=2;curved=0;" target="QKaY6ufUY5QWxxiP74Xu-306">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="604.56" y="1056.03" />
+              <mxPoint x="692.75" y="1056.03" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <UserObject label=" Plataforma NexusEngine &#xa;v2.0&#xa;[Software &#xa;System]&#xa;Plataforma distribuida de logística &#xa;omnicanal, &#xa;ruteo GPS, &#xa;pagos fintech y facturación.&#xa;(120k &#xa;despachos/día &#xa;en 5 países)" mermaidId="n:NexusSystem" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#1168bd;strokeColor=#0b4884;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="NexusSystem" id="QKaY6ufUY5QWxxiP74Xu-303">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="whiteSpace=wrap;strokeWidth=1;fillColor=#1168bd;strokeColor=#0b4884;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=21;" vertex="1">
+            <mxGeometry height="388" width="198" x="470.75" y="611" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Operadores &#xa;Logísticos Externos (3PL)&#xa;[External System]&#xa;APIs heterogéneas (REST/SOAP/GraphQL) de couriers internacionales y regionales." mermaidId="n:Carriers3PL" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Operadores Logísticos Externos (3PL)&#xa;[External System" id="QKaY6ufUY5QWxxiP74Xu-304">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=21;" vertex="1">
+            <mxGeometry height="286" width="208.5" x="87.25" y="1198" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Pasarelas de &#xa;Pago y Bancos&#xa;[External &#xa;System]&#xa;Procesadores de tarjetas, &#xa;billeteras &#xa;digitales y &#xa;bancos para conciliación." mermaidId="n:PaymentGateways" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Pasarelas de Pago y Bancos&#xa;[External System" id="QKaY6ufUY5QWxxiP74Xu-305">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=21;" vertex="1">
+            <mxGeometry height="308" width="208.5" x="330.75" y="1198" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Entidades Tributarias (5&#xa; Países)&#xa;[External &#xa;System]&#xa;SII / SUNAT /&#xa; DIAN / etc. para emisión de facturación electrónica." mermaidId="n:TaxAuthority" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Entidades Tributarias (5 Países)&#xa;[External System" id="QKaY6ufUY5QWxxiP74Xu-306">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=21;" vertex="1">
+            <mxGeometry height="308" width="198" x="593.75" y="1198" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Proveedores &#xa;Email / SMS / &#xa;Push&#xa;[External &#xa;System]&#xa;Servicios &#xa;transaccionales &#xa;(AWS SES, &#xa;Twilio, FCM)." mermaidId="n:NotificationProviders" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Proveedores Email / SMS / Push&#xa;[External System" id="QKaY6ufUY5QWxxiP74Xu-307">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=21;" vertex="1">
+            <mxGeometry height="266" width="198" x="848.75" y="1198" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-315" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-299" source="QKaY6ufUY5QWxxiP74Xu-314" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeWidth=2;curved=0;" target="QKaY6ufUY5QWxxiP74Xu-303">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820.75" y="584" />
+              <mxPoint x="619.32" y="584" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-316" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-299" source="QKaY6ufUY5QWxxiP74Xu-314" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;endArrow=none;endFill=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;curved=0;" target="QKaY6ufUY5QWxxiP74Xu-302">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820.75" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="&lt;span&gt;&lt;span style=&quot;font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;Audita conciliación y&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;div&gt;&lt;span&gt;&lt;span style=&quot;font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;facturación&lt;/span&gt;&lt;br style=&quot;--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: light-dark(#fff, #000000); --tw-ring-color: light-dark(#3b82f680, #4c89ec80); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;(HTTPS / TLS 1.3)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" mermaidId="n:NotificationProviders" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Proveedores Email / SMS / Push&#xa;[External System" id="QKaY6ufUY5QWxxiP74Xu-314">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#B3B3B3;strokeColor=#CCCCCC;fontColor=#000000;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=18;" vertex="1">
+            <mxGeometry height="73" width="231" x="705.25" y="452" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Actualiza estados, GPS y pagos COD&#xa;(HTTPS / WebSockets TLS 1.3)" mermaidId="n:NotificationProviders" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Proveedores Email / SMS / Push&#xa;[External System" id="QKaY6ufUY5QWxxiP74Xu-319">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="whiteSpace=wrap;strokeWidth=1;fillColor=#B3B3B3;strokeColor=#CCCCCC;fontColor=#000000;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=18;" vertex="1">
+            <mxGeometry height="88" width="231" x="454.25" y="444.5" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Crea órdenes y consulta tracking&#xa;(HTTPS / TLS 1.3)" mermaidId="n:NotificationProviders" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Proveedores Email / SMS / Push&#xa;[External System" id="QKaY6ufUY5QWxxiP74Xu-320">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="whiteSpace=wrap;strokeWidth=1;fillColor=#B3B3B3;strokeColor=#CCCCCC;fontColor=default;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=18;" vertex="1">
+            <mxGeometry height="88" width="231" x="190.25" y="444.5" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;span style=&quot;color: rgb(51, 51, 51); white-space: nowrap; background-color: rgb(179, 179, 179);&quot;&gt;Despacha alertas asíncronas&lt;/span&gt;&lt;br style=&quot;color: rgb(51, 51, 51); white-space: nowrap;&quot;&gt;&lt;span style=&quot;color: rgb(51, 51, 51); white-space: nowrap; background-color: rgb(179, 179, 179);&quot;&gt;(HTTPS / SMTP)&lt;/span&gt;&lt;/font&gt;" mermaidId="n:NotificationProviders" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Proveedores Email / SMS / Push&#xa;[External System" id="QKaY6ufUY5QWxxiP74Xu-325">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#B3B3B3;strokeColor=#CCCCCC;fontColor=#000000;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=17;" vertex="1">
+            <mxGeometry height="73" width="231" x="832.25" y="1078" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-328" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-299" source="QKaY6ufUY5QWxxiP74Xu-305" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.284;entryY=0.996;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;curved=0;strokeWidth=2;" target="QKaY6ufUY5QWxxiP74Xu-303">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="434.02" y="1056" />
+              <mxPoint x="526.75" y="1056" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-330" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-299" source="QKaY6ufUY5QWxxiP74Xu-335" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.117;entryY=1.001;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=none;endFill=0;curved=0;strokeWidth=2;" target="QKaY6ufUY5QWxxiP74Xu-303">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="191.52999999999997" y="1034" />
+              <mxPoint x="493.97" y="1034" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="&lt;span&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;span style=&quot;color: rgb(40, 37, 61); font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;Emite documentos tributarios&lt;/span&gt;&lt;br style=&quot;--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: light-dark(#fff, #000000); --tw-ring-color: light-dark(#3b82f680, #4c89ec80); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); color: rgb(40, 37, 61); font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;&lt;span style=&quot;color: rgb(40, 37, 61); font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;(HTTPS / XML / JSON)&lt;/span&gt;&lt;/font&gt;&lt;/span&gt;" mermaidId="n:NotificationProviders" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Proveedores Email / SMS / Push&#xa;[External System" id="QKaY6ufUY5QWxxiP74Xu-331">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#B3B3B3;strokeColor=#CCCCCC;fontColor=#000000;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=17;" vertex="1">
+            <mxGeometry height="73" width="231" x="577.25" y="1078" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;span&gt;&lt;span style=&quot;color: rgb(40, 37, 61); font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Tokeniza, procesa cobros y&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;&lt;div&gt;&lt;span&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;span style=&quot;color: rgb(40, 37, 61); font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;concilia&lt;/span&gt;&lt;br style=&quot;--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: light-dark(#fff, #000000); --tw-ring-color: light-dark(#3b82f680, #4c89ec80); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); color: rgb(40, 37, 61); font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;&lt;span style=&quot;color: rgb(40, 37, 61); font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;(HTTPS / TLS 1.3 / ISO-&lt;/span&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;span style=&quot;color: rgb(40, 37, 61); font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;8583)&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" mermaidId="n:NotificationProviders" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Proveedores Email / SMS / Push&#xa;[External System" id="QKaY6ufUY5QWxxiP74Xu-334">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#B3B3B3;strokeColor=#CCCCCC;fontColor=#000000;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=17;" vertex="1">
+            <mxGeometry height="88" width="208.5" x="337.75" y="1070.5" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;span&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;span style=&quot;color: rgb(40, 37, 61); font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;Cotiza tarifas y delega envíos&lt;/span&gt;&lt;br style=&quot;--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: light-dark(#fff, #000000); --tw-ring-color: light-dark(#3b82f680, #4c89ec80); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; box-sizing: border-box; border: 0px solid rgb(229, 231, 235); color: rgb(40, 37, 61); font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;&lt;span style=&quot;color: rgb(40, 37, 61); font-family: &amp;quot;Recursive Variable&amp;quot;, arial, sans-serif; white-space: nowrap;&quot;&gt;(HTTPS / REST / SOAP)&lt;/span&gt;&lt;/font&gt;&lt;/span&gt;" mermaidId="n:NotificationProviders" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#999999;strokeColor=#6b6b6b;fontColor=#ffffff;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot; Proveedores Email / SMS / Push&#xa;[External System" id="QKaY6ufUY5QWxxiP74Xu-335">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-299" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#B3B3B3;strokeColor=#CCCCCC;fontColor=#000000;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=17;" vertex="1">
+            <mxGeometry height="73" width="231" x="76" y="1078" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-336" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-299" source="QKaY6ufUY5QWxxiP74Xu-304" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" target="QKaY6ufUY5QWxxiP74Xu-335" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint x="159.75" y="1198" as="sourcePoint" />
+            <mxPoint x="493.75" y="999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

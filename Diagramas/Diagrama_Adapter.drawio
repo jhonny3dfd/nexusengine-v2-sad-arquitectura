@@ -1,0 +1,98 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="JAVcdKMqFjLkcAL3QV-d">
+    <mxGraphModel dx="2366" dy="1943" grid="1" gridSize="22" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&#xa;  &quot;data&quot;: &quot;classDiagram\n    direction TB\n\n    class IPaymentGatewayPort {\n        &lt;&lt;interface&gt;&gt;\n        +authorize_payment(order_id: str, pci_token: str, amount_cents: int, currency: str) PaymentResult\n        +capture_funds(transaction_id: str) bool\n    }\n\n    class PaymentOrchestratorService {\n        -gateway: IPaymentGatewayPort\n        +process_order_payment(order_id: str, pci_token: str, amount_cents: int, currency: str) PaymentResult\n    }\n\n    class LatamDigitalWalletSDK {\n        +execute_xml_charge(wallet_hash: str, decimal_value: float, iso_country: str) dict\n        +commit_tx(external_ref: str) int\n    }\n\n    class LatamWalletPaymentAdapter {\n        -adaptee_sdk: LatamDigitalWalletSDK\n        -country_map: dict\n        +authorize_payment(order_id: str, pci_token: str, amount_cents: int, currency: str) PaymentResult\n        +capture_funds(transaction_id: str) bool\n    }\n\n    PaymentOrchestratorService --&gt; IPaymentGatewayPort : uses (Target)\n    IPaymentGatewayPort &lt;|.. LatamWalletPaymentAdapter : implements\n    LatamWalletPaymentAdapter --&gt; LatamDigitalWalletSDK : wraps &amp; translates (Adaptee)&quot;,&#xa;  &quot;config&quot;: null&#xa;}" id="QKaY6ufUY5QWxxiP74Xu-76">
+          <mxCell connectable="0" parent="1" style="group;transparentBounds=1;editIcon=1;lockedGroup=0;groupPadding=10;" vertex="1">
+            <mxGeometry as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="«interface»&lt;br&gt;&lt;b&gt;IPaymentGatewayPort&lt;/b&gt;" mermaidId="n:IPaymentGatewayPort" mermaidBaseStyle="swimlane;html=1;fontStyle=0;fontSize=16;align=center;verticalAlign=middle;horizontal=1;childLayout=stackLayout;startSize=72;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginTop=12;marginBottom=12;stackSpacing=0;swimlaneFillColor=light-dark(#ECECFF,#1f2020);whiteSpace=wrap;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;" mermaidBaseValue="«interface»&lt;br&gt;&lt;b&gt;IPaymentGatewayPort&lt;/b&gt;" id="QKaY6ufUY5QWxxiP74Xu-77">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-76" style="swimlane;html=1;fontStyle=0;fontSize=16;align=center;verticalAlign=middle;horizontal=1;childLayout=stackLayout;startSize=72;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginTop=12;marginBottom=12;stackSpacing=0;swimlaneFillColor=light-dark(#ECECFF,#1f2020);whiteSpace=wrap;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;strokeColor=#FF00FF;strokeWidth=2;" vertex="1">
+            <mxGeometry height="164" width="813" x="1358" y="619" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-78" parent="QKaY6ufUY5QWxxiP74Xu-77" style="line;strokeWidth=1;fillColor=none;spacingLeft=3;spacingRight=3;rotatable=0;points=[];strokeColor=inherit;" vertex="1">
+          <mxGeometry height="20" width="813" y="84" as="geometry" />
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-79" parent="QKaY6ufUY5QWxxiP74Xu-77" style="text;fontSize=16;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=12;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);" value="+authorize_payment(order_id: str, pci_token: str, amount_cents: int, currency: str) PaymentResult" vertex="1">
+          <mxGeometry height="24" width="813" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-80" parent="QKaY6ufUY5QWxxiP74Xu-77" style="text;fontSize=16;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=12;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);" value="+capture_funds(transaction_id: str) bool" vertex="1">
+          <mxGeometry height="24" width="813" y="128" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;b&gt;PaymentOrchestratorService&lt;/b&gt;" mermaidId="n:PaymentOrchestratorService" mermaidBaseStyle="swimlane;html=1;fontStyle=0;fontSize=16;align=center;verticalAlign=middle;horizontal=1;childLayout=stackLayout;startSize=48;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginTop=12;marginBottom=12;stackSpacing=0;swimlaneFillColor=light-dark(#ECECFF,#1f2020);whiteSpace=wrap;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;" mermaidBaseValue="&lt;b&gt;PaymentOrchestratorService&lt;/b&gt;" id="QKaY6ufUY5QWxxiP74Xu-81">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-76" style="swimlane;html=1;fontStyle=0;fontSize=16;align=center;verticalAlign=middle;horizontal=1;childLayout=stackLayout;startSize=48;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginTop=12;marginBottom=12;stackSpacing=0;swimlaneFillColor=light-dark(#ECECFF,#1f2020);whiteSpace=wrap;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;strokeColor=#00D16E;strokeWidth=2;" vertex="1">
+            <mxGeometry height="140" width="868" x="1330" y="406" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-82" parent="QKaY6ufUY5QWxxiP74Xu-81" style="text;fontSize=16;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=12;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);" value="-gateway: IPaymentGatewayPort" vertex="1">
+          <mxGeometry height="24" width="868" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-83" parent="QKaY6ufUY5QWxxiP74Xu-81" style="line;strokeWidth=1;fillColor=none;spacingLeft=3;spacingRight=3;rotatable=0;points=[];strokeColor=inherit;" vertex="1">
+          <mxGeometry height="20" width="868" y="84" as="geometry" />
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-84" parent="QKaY6ufUY5QWxxiP74Xu-81" style="text;fontSize=16;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=12;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);" value="+process_order_payment(order_id: str, pci_token: str, amount_cents: int, currency: str) PaymentResult" vertex="1">
+          <mxGeometry height="24" width="868" y="104" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;b&gt;LatamDigitalWalletSDK&lt;/b&gt;" mermaidId="n:LatamDigitalWalletSDK" mermaidBaseStyle="swimlane;html=1;fontStyle=0;fontSize=16;align=center;verticalAlign=middle;horizontal=1;childLayout=stackLayout;startSize=48;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginTop=12;marginBottom=12;stackSpacing=0;swimlaneFillColor=light-dark(#ECECFF,#1f2020);whiteSpace=wrap;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;" mermaidBaseValue="&lt;b&gt;LatamDigitalWalletSDK&lt;/b&gt;" id="QKaY6ufUY5QWxxiP74Xu-85">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-76" style="swimlane;html=1;fontStyle=0;fontSize=16;align=center;verticalAlign=middle;horizontal=1;childLayout=stackLayout;startSize=48;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginTop=12;marginBottom=12;stackSpacing=0;swimlaneFillColor=light-dark(#ECECFF,#1f2020);whiteSpace=wrap;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;strokeColor=#FF8000;strokeWidth=2;" vertex="1">
+            <mxGeometry height="140" width="701" x="1414" y="1111" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-86" parent="QKaY6ufUY5QWxxiP74Xu-85" style="line;strokeWidth=1;fillColor=none;spacingLeft=3;spacingRight=3;rotatable=0;points=[];strokeColor=inherit;" vertex="1">
+          <mxGeometry height="20" width="701" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-87" parent="QKaY6ufUY5QWxxiP74Xu-85" style="text;fontSize=16;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=12;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);" value="+execute_xml_charge(wallet_hash: str, decimal_value: float, iso_country: str) dict" vertex="1">
+          <mxGeometry height="24" width="701" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-88" parent="QKaY6ufUY5QWxxiP74Xu-85" style="text;fontSize=16;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=12;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);" value="+commit_tx(external_ref: str) int" vertex="1">
+          <mxGeometry height="24" width="701" y="104" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;b&gt;LatamWalletPaymentAdapter&lt;/b&gt;" mermaidId="n:LatamWalletPaymentAdapter" mermaidBaseStyle="swimlane;html=1;fontStyle=0;fontSize=16;align=center;verticalAlign=middle;horizontal=1;childLayout=stackLayout;startSize=48;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginTop=12;marginBottom=12;stackSpacing=0;swimlaneFillColor=light-dark(#ECECFF,#1f2020);whiteSpace=wrap;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;" mermaidBaseValue="&lt;b&gt;LatamWalletPaymentAdapter&lt;/b&gt;" id="QKaY6ufUY5QWxxiP74Xu-89">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-76" style="swimlane;html=1;fontStyle=0;fontSize=16;align=center;verticalAlign=middle;horizontal=1;childLayout=stackLayout;startSize=48;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginTop=12;marginBottom=12;stackSpacing=0;swimlaneFillColor=light-dark(#ECECFF,#1f2020);whiteSpace=wrap;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;strokeColor=#00CCCC;strokeWidth=2;" vertex="1">
+            <mxGeometry height="188" width="839" x="1345" y="850" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-90" parent="QKaY6ufUY5QWxxiP74Xu-89" style="text;fontSize=16;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=12;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);" value="-adaptee_sdk: LatamDigitalWalletSDK" vertex="1">
+          <mxGeometry height="24" width="839" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-91" parent="QKaY6ufUY5QWxxiP74Xu-89" style="text;fontSize=16;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=12;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);" value="-country_map: dict" vertex="1">
+          <mxGeometry height="24" width="839" y="84" as="geometry" />
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-92" parent="QKaY6ufUY5QWxxiP74Xu-89" style="line;strokeWidth=1;fillColor=none;spacingLeft=3;spacingRight=3;rotatable=0;points=[];strokeColor=inherit;" vertex="1">
+          <mxGeometry height="20" width="839" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-93" parent="QKaY6ufUY5QWxxiP74Xu-89" style="text;fontSize=16;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=12;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);" value="+authorize_payment(order_id: str, pci_token: str, amount_cents: int, currency: str) PaymentResult" vertex="1">
+          <mxGeometry height="24" width="839" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-94" parent="QKaY6ufUY5QWxxiP74Xu-89" style="text;fontSize=16;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=12;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);" value="+capture_funds(transaction_id: str) bool" vertex="1">
+          <mxGeometry height="24" width="839" y="152" as="geometry" />
+        </mxCell>
+        <UserObject label="uses (Target)" mermaidId="e:PaymentOrchestratorService-&gt;IPaymentGatewayPort#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=classic;endSize=9;strokeColor=light-dark(#333333,#cccccc);html=1;fontSize=16;labelBackgroundColor=light-dark(#ECECFF,#1f2020);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="uses (Target)" id="QKaY6ufUY5QWxxiP74Xu-95">
+          <mxCell edge="1" parent="QKaY6ufUY5QWxxiP74Xu-76" source="QKaY6ufUY5QWxxiP74Xu-81" style="curved=1;startArrow=none;endArrow=classic;endSize=9;strokeColor=light-dark(#333333,#cccccc);html=1;fontSize=16;labelBackgroundColor=light-dark(#ECECFF,#1f2020);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="QKaY6ufUY5QWxxiP74Xu-77">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="implements" mermaidId="e:IPaymentGatewayPort-&gt;LatamWalletPaymentAdapter#0" mermaidBaseStyle="curved=1;dashed=1;startArrow=block;startSize=14;startFill=0;endArrow=none;strokeColor=light-dark(#333333,#cccccc);html=1;fontSize=16;labelBackgroundColor=light-dark(#ECECFF,#1f2020);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="implements" id="QKaY6ufUY5QWxxiP74Xu-96">
+          <mxCell edge="1" parent="QKaY6ufUY5QWxxiP74Xu-76" source="QKaY6ufUY5QWxxiP74Xu-77" style="curved=1;dashed=1;startArrow=block;startSize=14;startFill=0;endArrow=none;strokeColor=light-dark(#333333,#cccccc);html=1;fontSize=16;labelBackgroundColor=light-dark(#ECECFF,#1f2020);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;fixDash=1;rounded=0;" target="QKaY6ufUY5QWxxiP74Xu-89">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="wraps &amp; translates (Adaptee)" mermaidId="e:LatamWalletPaymentAdapter-&gt;LatamDigitalWalletSDK#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=classic;endSize=9;strokeColor=light-dark(#333333,#cccccc);html=1;fontSize=16;labelBackgroundColor=light-dark(#ECECFF,#1f2020);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="wraps &amp; translates (Adaptee)" id="QKaY6ufUY5QWxxiP74Xu-97">
+          <mxCell edge="1" parent="QKaY6ufUY5QWxxiP74Xu-76" source="QKaY6ufUY5QWxxiP74Xu-89" style="curved=1;startArrow=none;endArrow=classic;endSize=9;strokeColor=light-dark(#333333,#cccccc);html=1;fontSize=16;labelBackgroundColor=light-dark(#ECECFF,#1f2020);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="QKaY6ufUY5QWxxiP74Xu-85">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
