@@ -1,6 +1,7 @@
 # nexusengine-v2-sad-arquitectura
 
 Integrantes: -Jhonatan De La Cruz Tigre
+
              -Lorenzo Cotta
 
 diagramas: son los diagramas editables del informe formato .drawio
