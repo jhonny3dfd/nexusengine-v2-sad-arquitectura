@@ -1,0 +1,110 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="JAVcdKMqFjLkcAL3QV-d">
+    <mxGraphModel dx="3535" dy="1943" grid="1" gridSize="22" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&#xa;  &quot;data&quot;: &quot;---\nconfig:\n  themeVariables:\n    fontFamily: Arial\n    fontSize: 22px\n  flowchart:\n    nodeSpacing: 30\n    rankSpacing: 60\n    subGraphTitleMargin:\n      top: 15\n      bottom: 45\n---\nflowchart LR\n    subgraph API_Layer[\&quot;Entrada desde API Gateway / Kafka\&quot;]\n        REST_In[\&quot;Order REST Controller&lt;br/&gt;[FastAPI Router]\&quot;]\n        Kafka_In[\&quot;Event Consumer Controller&lt;br/&gt;[Kafka Listener]\&quot;]\n    end\n\n    subgraph Order_Core_Hexagon[\&quot;Contenedor: Order Core &amp;amp; Integration Services&lt;br/&gt;(Arquitectura Hexagonal) · Figura 1\&quot;]\n        subgraph Application_Layer[\&quot;Capa de Aplicación&lt;br/&gt;(Casos de Uso)\&quot;]\n            CreateOrderUC[\&quot;CreateOrderUseCase&lt;br/&gt;Coordina validación,&lt;br/&gt;aranceles y persistencia.\&quot;]\n            TrackOrderUC[\&quot;OrderStateMachine &amp;amp;&lt;br/&gt;TrackingProjection&lt;br/&gt;Gestiona transiciones e impulsa&lt;br/&gt;eventos (Observer).\&quot;]\n        end\n        subgraph Domain_Layer[\&quot;Núcleo de Dominio&lt;br/&gt;(0% Dependencias Externas)\&quot;]\n            OrderEntity[\&quot;Order Aggregate Root&lt;br/&gt;Entidad de dominio pura&lt;br/&gt;y reglas de negocio.\&quot;]\n            TariffEngine[\&quot;Tariff &amp;amp; Customs Engine&lt;br/&gt;[Patrón Strategy]&lt;br/&gt;Cálculo dinámico de tarifas&lt;br/&gt;y aranceles (5 países).\&quot;]\n            CarrierPort[\&quot;ICarrierShipmentPort&lt;br/&gt;[Patrón Factory Method]&lt;br/&gt;Puerto estándar para&lt;br/&gt;despachos logísticos.\&quot;]\n            PaymentPort[\&quot;IPaymentProcessorPort&lt;br/&gt;[Patrón Adapter]&lt;br/&gt;Puerto estándar para&lt;br/&gt;cobros y billeteras.\&quot;]\n        end\n    end\n\n    REST_In --&gt; CreateOrderUC\n    Kafka_In --&gt; TrackOrderUC\n    CreateOrderUC --&gt; OrderEntity &amp; TariffEngine\n    TrackOrderUC --&gt; CarrierPort &amp; PaymentPort\n\n    classDef entry fill:#ecfeff,stroke:#22d3ee,color:#164e63\n    classDef application fill:#eef2ff,stroke:#818cf8,color:#312e81\n    classDef domain fill:#f0fdfa,stroke:#2dd4bf,color:#134e4a\n    class REST_In,Kafka_In entry\n    class CreateOrderUC,TrackOrderUC application\n    class OrderEntity,TariffEngine,CarrierPort,PaymentPort domain&quot;,&#xa;  &quot;config&quot;: null&#xa;}" id="QKaY6ufUY5QWxxiP74Xu-133">
+          <mxCell connectable="0" parent="1" style="group;transparentBounds=1;editIcon=1;lockedGroup=0;groupPadding=10;" vertex="1">
+            <mxGeometry height="1002" width="1140" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;font style=&quot;font-size: 15px;&quot;&gt;Entrada desde API Gateway / Kafka&lt;/font&gt;" mermaidId="n:API_Layer" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Entrada desde API Gateway / Kafka" id="QKaY6ufUY5QWxxiP74Xu-134">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-133" style="html=1;whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;strokeColor=#FF99FF;" vertex="1">
+            <mxGeometry height="352" width="242" x="176" y="396" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&#xa;Order&#xa; REST Controller&#xa;[FastAPI Router]&#xa;" mermaidId="n:REST_In" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#ecfeff;strokeColor=#22d3ee;fontColor=#164e63;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot;Order REST Controller&#xa;[FastAPI Router" id="QKaY6ufUY5QWxxiP74Xu-135">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-134" style="whiteSpace=wrap;strokeWidth=2;fillColor=#ecfeff;strokeColor=#22d3ee;fontColor=#164e63;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;shadow=0;" vertex="1">
+            <mxGeometry height="137.36" width="99" x="22" y="32.72" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Event Consumer Controller&#xa;[Kafka Listener]" mermaidId="n:Event" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Event" id="QKaY6ufUY5QWxxiP74Xu-137">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-134" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#22D3EE,#CCCCCC);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="130.36" width="97" x="22" y="200.59" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Contenedor: Order Core &amp;amp; Integration Services&#xa;(Arquitectura Hexagonal) · Figura 1" mermaidId="n:Order_Core_Hexagon" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Contenedor: Order Core &amp;amp; Integration Services&#xa;(Arquitectura Hexagonal) · Figura 1" id="QKaY6ufUY5QWxxiP74Xu-140">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-133" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;strokeColor=#00FFFF;rounded=0;shadow=0;" vertex="1">
+            <mxGeometry height="948" width="484" x="484" y="44" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Capa de Aplicación&#xa;(Casos de Uso)" mermaidId="n:Application_Layer" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Capa de Aplicación&#xa;(Casos de Uso)" id="QKaY6ufUY5QWxxiP74Xu-141">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-140" style="html=1;whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;glass=0;fillColor=none;strokeColor=#FFB366;shadow=0;rounded=0;gradientColor=none;fillStyle=auto;" vertex="1">
+            <mxGeometry height="390.23275862068965" width="194.69" x="22.2" y="324.8534482758621" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;font style=&quot;font-size: 17px;&quot;&gt;CreateOrderUseCase&lt;br&gt;Coordina validación,&lt;br&gt;aranceles y persistencia.&lt;/font&gt;" mermaidId="n:CreateOrderUC" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#eef2ff;strokeColor=#818cf8;fontColor=#312e81;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="CreateOrderUseCase&#xa;Coordina validación,&#xa;aranceles y persistencia." id="QKaY6ufUY5QWxxiP74Xu-142">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-141" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#eef2ff;strokeColor=#818cf8;fontColor=#312e81;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;shadow=1;" vertex="1">
+            <mxGeometry height="103.52746438044714" width="177.7859443352465" x="8.453187250299504" y="56.60519136036377" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="OrderStateMachine &amp;&#xa;TrackingProjection&#xa;Gestiona transiciones e impulsa&#xa;eventos (Observer)." mermaidId="n:TrackOrderUC" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#eef2ff;strokeColor=#818cf8;fontColor=#312e81;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="OrderStateMachine &amp;amp;&#xa;TrackingProjection&#xa;Gestiona transiciones e impulsa&#xa;eventos (Observer)." id="QKaY6ufUY5QWxxiP74Xu-143">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-141" style="strokeWidth=1;fillColor=#eef2ff;strokeColor=#818cf8;fontColor=#312e81;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;whiteSpace=wrap;shadow=1;" vertex="1">
+            <mxGeometry height="167.02819723380065" width="177.7859443352465" x="8.453187250299504" y="200.67397991663506" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Núcleo de Dominio&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(0% Dependencias Externas)&lt;/span&gt;&lt;/div&gt;&lt;/font&gt;" mermaidId="n:Domain_Layer" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Núcleo de Dominio&#xa;(0% Dependencias Externas)" id="QKaY6ufUY5QWxxiP74Xu-144">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-140" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;strokeColor=light-dark(#66FFFF,#CCCCCC);" vertex="1">
+            <mxGeometry height="867.8081896551724" width="188.69" x="272.18" y="57.20689655172414" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="IPaymentProcessorPort&#xa;[Patrón Adapter]&#xa;Puerto estándar para&#xa;cobros y billeteras." mermaidId="n:CarrierPort" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#f0fdfa;strokeColor=#2dd4bf;fontColor=#134e4a;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot;ICarrierShipmentPort&#xa;[Patrón Factory Method" id="QKaY6ufUY5QWxxiP74Xu-147">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-144" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f0fdfa;strokeColor=#2dd4bf;fontColor=#134e4a;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=15;align=center;" vertex="1">
+            <mxGeometry height="105.74081896551725" width="157.25" x="18.75" y="736.5387931034483" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="ICarrierShipmentPort&#xa;[Patrón Factory Method]&#xa;Puerto estándar &#xa;para&#xa;despachos &#xa;logísticos." mermaidId="n:PaymentPort" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#f0fdfa;strokeColor=#2dd4bf;fontColor=#134e4a;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot;IPaymentProcessorPort&#xa;[Patrón Adapter" id="QKaY6ufUY5QWxxiP74Xu-148">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-144" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f0fdfa;strokeColor=#2dd4bf;fontColor=#134e4a;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=15;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="170.41525862068966" width="145.89" x="19.11" y="535.2011637931034" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(19, 78, 74), rgb(141, 192, 188));&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Order Aggregate Root&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(19, 78, 74), rgb(141, 192, 188));&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Entidad de dominio pura&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(19, 78, 74), rgb(141, 192, 188));&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;y reglas de negocio.&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" mermaidId="n:OrderEntity" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#f0fdfa;strokeColor=#2dd4bf;fontColor=#134e4a;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Order Aggregate Root&#xa;Entidad de dominio pura&#xa;y reglas de negocio." id="QKaY6ufUY5QWxxiP74Xu-145">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-144" style="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#f0fdfa;strokeColor=#2dd4bf;fontColor=#134e4a;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=14;align=center;" vertex="1">
+            <mxGeometry height="198.94719827586206" width="84.6" x="19.11" y="56.185344827586206" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Tariff &amp; Customs Engine&#xa;[Patrón Strategy]&#xa;Cálculo dinámico &#xa;de tarifas&#xa;y aranceles&#xa;(5 países)." mermaidId="n:TariffEngine" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=#f0fdfa;strokeColor=#2dd4bf;fontColor=#134e4a;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="&quot;Tariff &amp;amp; Customs Engine&#xa;[Patrón Strategy" id="QKaY6ufUY5QWxxiP74Xu-146">
+          <mxCell parent="QKaY6ufUY5QWxxiP74Xu-144" style="strokeWidth=2;fillColor=#f0fdfa;strokeColor=#2dd4bf;fontColor=#134e4a;fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=15;align=center;verticalAlign=middle;whiteSpace=wrap;convertToSvg=0;svgWhiteSpace=wrap;autosizeText=0;" vertex="1">
+            <mxGeometry height="219.75" width="84.60315299994686" x="19.11267152043365" y="281.793103" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-158" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-140" source="QKaY6ufUY5QWxxiP74Xu-145" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.003;entryY=0.306;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;endArrow=none;endFill=0;startArrow=classic;startFill=1;curved=0;startSize=6;endSize=6;" target="QKaY6ufUY5QWxxiP74Xu-142">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="242.02" y="201.62366379310345" />
+              <mxPoint x="242.02" y="413.1461637931035" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-164" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-140" source="QKaY6ufUY5QWxxiP74Xu-143" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;" target="QKaY6ufUY5QWxxiP74Xu-148">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-160" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-140" source="QKaY6ufUY5QWxxiP74Xu-142" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;entryX=-0.015;entryY=0.517;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.687;exitDx=0;exitDy=0;exitPerimeter=0;" target="QKaY6ufUY5QWxxiP74Xu-146">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint x="290.02" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-165" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-133" source="QKaY6ufUY5QWxxiP74Xu-135" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;curved=0;" target="QKaY6ufUY5QWxxiP74Xu-142">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="462.04" y="484" />
+              <mxPoint x="462.04" y="477.19" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QKaY6ufUY5QWxxiP74Xu-166" edge="1" parent="QKaY6ufUY5QWxxiP74Xu-133" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=0;curved=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="462.04" y="653.04" />
+              <mxPoint x="462.04" y="660" />
+            </Array>
+            <mxPoint x="295.21" y="653.04" as="sourcePoint" />
+            <mxPoint x="513.94" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
